@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f2f2f7">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Settings Demo">
+  <meta name="description" content="An iOS-inspired settings interface with editable demo battery and Screen Time data.">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="stylesheet" href="style.css">
+  <title>Settings Demo</title>
+</head>
+<body>
+  <div class="app-shell">
+    <div class="statusbar" aria-label="Demo status bar">
+      <span id="statusClock">9:41</span>
+      <div class="status-right"><span aria-hidden="true">●●●</span><span aria-hidden="true">Wi-Fi</span><span class="battery-outline"><span id="statusBatteryFill"></span></span><span id="statusBatteryPct">78%</span></div>
+    </div>
+    <header class="topbar">
+      <button id="backButton" class="back-button is-hidden" type="button">‹ <span>Settings</span></button>
+      <div id="navTitle" class="nav-title"></div>
+      <div class="topbar-spacer"></div>
+    </header>
+    <main id="homePage">
+      <h1>Settings</h1>
+      <label class="searchbox"><span aria-hidden="true">⌕</span><input id="settingsSearch" type="search" placeholder="Search" autocomplete="off"></label>
+      <section class="group account-group" data-search="apple account icloud media purchases"><button class="account-row row-button" data-page="account"><span class="avatar">♙</span><span class="row-main"><strong>Apple Account</strong><small>iCloud, Media & Purchases</small></span><span class="chevron">›</span></button></section>
+      <section class="group" aria-label="Connectivity">
+        <button class="settings-row row-button" data-page="airplane" data-search="airplane mode"><span class="app-icon orange">✈</span><span class="row-label">Airplane Mode</span><input class="ios-switch stop-row" type="checkbox" aria-label="Airplane Mode demo toggle" data-state="airplaneOn"></button>
+        <button class="settings-row row-button" data-page="wifi" data-search="wi-fi wifi network"><span class="app-icon blue">⌁</span><span class="row-label">Wi-Fi</span><span class="row-detail" id="wifiSummary">Home Wi-Fi</span><span class="chevron">›</span></button>
+        <button class="settings-row row-button" data-page="bluetooth" data-search="bluetooth"><span class="app-icon blue">ᛒ</span><span class="row-label">Bluetooth</span><span class="row-detail" id="bluetoothSummary">On</span><span class="chevron">›</span></button>
+        <button class="settings-row row-button" data-page="cellular" data-search="cellular mobile data"><span class="app-icon green">▥</span><span class="row-label">Cellular</span><span class="chevron">›</span></button>
+      </section>
+      <section class="group" aria-label="System settings">
+        <button class="settings-row row-button" data-page="general" data-search="general about software update date time"><span class="app-icon gray">⚙</span><span class="row-label">General</span><span class="chevron">›</span></button>
+        <button class="settings-row row-button" data-page="display" data-search="display brightness dark mode appearance"><span class="app-icon slate">◐</span><span class="row-label">Display & Brightness</span><span class="chevron">›</span></button>
+        <button class="settings-row row-button" data-page="battery" data-search="battery level charging usage"><span class="app-icon green">▰</span><span class="row-label">Battery</span><span class="row-detail" id="homeBattery">78%</span><span class="chevron">›</span></button>
+        <button class="settings-row row-button" data-page="screentime" data-search="screen time app usage daily weekly"><span class="app-icon purple">⌛</span><span class="row-label">Screen Time</span><span class="chevron">›</span></button>
+        <button class="settings-row row-button" data-page="notifications" data-search="notifications alerts previews"><span class="app-icon red">▣</span><span class="row-label">Notifications</span><span class="chevron">›</span></button>
+        <button class="settings-row row-button" data-page="sounds" data-search="sounds haptics ringtone volume"><span class="app-icon pink">♫</span><span class="row-label">Sounds & Haptics</span><span class="chevron">›</span></button>
+        <button class="settings-row row-button" data-page="privacy" data-search="privacy security location camera microphone"><span class="app-icon blue">✋</span><span class="row-label">Privacy & Security</span><span class="chevron">›</span></button>
+      </section>
+      <p id="noSearchResults" class="empty-state is-hidden">No Results</p>
+      <p class="disclaimer">Settings Demo is an independent visual demo inspired by iOS. It is not an Apple app and does not change actual iPhone settings.</p>
+    </main>
+    <main id="detailPage" class="is-hidden" aria-live="polite"></main>
+    <footer class="footer-note">Settings Demo · Not affiliated with Apple</footer>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
